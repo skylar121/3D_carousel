@@ -1,0 +1,108 @@
+@keyframes prevRotation {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(45deg);
+  }
+}
+
+@keyframes nextRotation {
+  to {
+    transform: rotateY(-45deg);
+  }
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(./images/background.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.title {
+  display: block;
+  background-image: url(./images/logo.png);
+  width: 500px;
+  height: 100px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 0px auto -80px;
+  transform: translateY(20px);
+}
+
+.ir {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+}
+
+.stage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 850px;
+  perspective: 900px;  
+}
+
+.carousel {
+  position: relative;
+  width: 200px;
+  height: 280px;
+  transform-style: preserve-3d;
+}
+
+.panel {  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 280px;
+  background: rgba(36, 35, 35, 0.5);  
+  border-radius: 10px;
+  border: 1px solid black;
+  /* backface-visibility: hidden; */
+}
+
+.panel:nth-child(1) {transform: rotateY(0deg) translateZ(280px);
+}
+.panel:nth-child(2) {transform: rotateY(45deg) translateZ(280px);}
+.panel:nth-child(3) {transform: rotateY(90deg) translateZ(280px);}
+.panel:nth-child(4) {transform: rotateY(135deg)  translateZ(280px);}
+.panel:nth-child(5) {transform: rotateY(180deg)  translateZ(280px);}
+.panel:nth-child(6) {transform: rotateY(225deg)  translateZ(280px);}
+.panel:nth-child(7) {transform: rotateY(270deg)  translateZ(280px);}
+.panel:nth-child(8) {transform: rotateY(315deg)  translateZ(280px);}
+
+.buttons {
+  width: 300px;
+  margin: -50px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.prev, .next {
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 17px;
+  font-weight: 600;
+  border-radius: 5px;
+  border: 2px solid darkgray;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgb(181, 228, 247);
+}

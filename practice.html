@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+        <h1 class="title"></h1>
+        <div class="stage">
+            <ul class="carousel">
+                <div class="panel">1</div>
+                <div class="panel">2</div>
+                <div class="panel">3</div>
+                <div class="panel">4</div>
+                <div class="panel">5</div>
+                <div class="panel">6</div>
+                <div class="panel">7</div>
+                <div class="panel">8</div>
+            </ul>
+        </div>
+        <div class="buttons">
+            <button class="prev" type="button">prev</button>
+            <button class="next" type="button">next</button>
+        </div>
+    </div>
+    <script>
+        const container = document.querySelector(".carousel");
+        const prevBtn = document.querySelector(".prev");
+        const nextBtn = document.querySelector(".next");
+        const item = document.querySelectorAll(".panel");
+        // const contents = [
+        //     {job: Summoner, detail: lorem ipsum},
+        //     {job: Gunbreaker, detail: lorem ipsum},
+        //     {job: Knight, detail: lorem ipsum},
+        // ]
+
+        prevBtn.addEventListener('click', event => {
+            container.style.animation = 'prevRotation 1s linear';
+            container.onanimationend = () => {
+                container.removeAttribute('style');
+                container.insertBefore(container.lastElementChild, container.firstElementChild);
+            };
+        });
+
+        nextBtn.addEventListener('click', event => {
+            container.style.animation = 'nextRotation 1s linear';
+            container.onanimationend = () => {
+                container.removeAttribute('style');
+                container.appendChild(container.firstElementChild);
+            };
+        });
+
+    </script>
+</body>
+
+</html>
